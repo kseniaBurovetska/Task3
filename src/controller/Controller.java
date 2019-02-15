@@ -1,7 +1,6 @@
 package controller;
 
 import model.Model;
-import view.TextConsts;
 import view.View;
 
 import java.util.Scanner;
@@ -18,12 +17,9 @@ public class Controller {
 
     public void process() {
         Scanner scanner = new Scanner(System.in);
-        UtilityController uc = new UtilityController(scanner, view);
-        InputToNoteBook noteBook = new InputToNoteBook(model);
+        InputToNoteBook noteBook = new InputToNoteBook(scanner, view);
 
-        noteBook.setSurname(uc.inputStringValueRegex(TextConsts.INPUT_SURNAME, RegexCont.REGEX_SURNAME));
-        noteBook.setName(uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME));
-        noteBook.setPatronymic(uc.inputStringValueRegex(TextConsts.INPUT_PATRONYMIC, RegexCont.REGEX_PATRONYMIC));
+        noteBook.input();
 
     }
 
