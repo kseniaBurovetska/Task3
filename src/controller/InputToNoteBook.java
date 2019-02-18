@@ -15,6 +15,8 @@ public class InputToNoteBook {
     private String login;
     private String homePhone;
     private String cellPhone;
+    private String email;
+    private String address;
 
     InputToNoteBook(Scanner scanner, View view) {
         this.scanner = scanner;
@@ -30,6 +32,8 @@ public class InputToNoteBook {
         login = uc.inputStringValueRegex(TextConsts.INPUT_LOGIN, RegexCont.REGEX_LOGIN);
         homePhone = uc.inputStringValueRegex(TextConsts.INPUT_HOME_PHONE, RegexCont.REGEX_HOME_PHONE);
         cellPhone = uc.inputStringValueRegex(TextConsts.INPUT_CELL_PHONE, RegexCont.REGEX_CELL_PHONE);
+        email = uc.inputStringValueRegex(TextConsts.INPUT_EMAIL, RegexCont.REGEX_EMAIL_SKYPE);
+        address = uc.inputStringValueRegex(TextConsts.INPUT_ADDRESS, RegexCont.REGEX_ADDRESS);
     }
 
 }
