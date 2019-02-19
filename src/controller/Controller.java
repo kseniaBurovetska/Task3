@@ -1,6 +1,8 @@
 package controller;
 
+import model.AlreadyExistsException;
 import model.Model;
+import model.NoteBook;
 import view.View;
 
 import java.util.Scanner;
@@ -17,9 +19,14 @@ public class Controller {
 
     public void process() {
         Scanner scanner = new Scanner(System.in);
-        InputToNoteBook noteBook = new InputToNoteBook(scanner, view);
-
-        noteBook.input();
+        InputToNoteBook inputToNoteBook = new InputToNoteBook(scanner, view);
+        inputToNoteBook.input();
+        try {
+            NoteBook noteBook = new NoteBook(inputToNoteBook.getName(), inputToNoteBook.getLogin());
+        }catch (AlreadyExistsException e){
+            System.err.println(e.getMessage());
+            inputToNoteBook.input();
+        }
 
     }
 
