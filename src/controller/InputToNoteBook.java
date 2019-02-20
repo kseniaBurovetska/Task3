@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class InputToNoteBook {
 
+    UtilityController uc;
+
     private View view;
     private Scanner scanner;
     private String name;
@@ -23,6 +25,7 @@ public class InputToNoteBook {
     InputToNoteBook(Scanner scanner, View view) {
         this.scanner = scanner;
         this.view = view;
+        uc = new UtilityController(scanner, view);
     }
 
     String getName(){
@@ -34,16 +37,23 @@ public class InputToNoteBook {
     }
 
     public void input() {
-        UtilityController uc = new UtilityController(scanner, view);
 
         //surname = uc.inputStringValueRegex(TextConsts.INPUT_SURNAME, RegexCont.REGEX_SURNAME);
-        name = uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME);
+        name = getNameReg();
         //patronymic = uc.inputStringValueRegex(TextConsts.INPUT_PATRONYMIC, RegexCont.REGEX_PATRONYMIC);
-        login = uc.inputStringValueRegex(TextConsts.INPUT_LOGIN, RegexCont.REGEX_LOGIN);
+        login = getLoginReg();
         //homePhone = uc.inputStringValueRegex(TextConsts.INPUT_HOME_PHONE, RegexCont.REGEX_HOME_PHONE);
         //cellPhone = uc.inputStringValueRegex(TextConsts.INPUT_CELL_PHONE, RegexCont.REGEX_CELL_PHONE);
         //email = uc.inputStringValueRegex(TextConsts.INPUT_EMAIL, RegexCont.REGEX_EMAIL_SKYPE);
         //address = uc.inputStringValueRegex(TextConsts.INPUT_ADDRESS, RegexCont.REGEX_ADDRESS);
+    }
+
+    public String getNameReg(){
+        return uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME);
+    }
+
+    public String getLoginReg(){
+        return uc.inputStringValueRegex(TextConsts.INPUT_LOGIN, RegexCont.REGEX_LOGIN);
     }
 
 }

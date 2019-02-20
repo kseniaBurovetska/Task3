@@ -2,8 +2,20 @@ package view;
 
 public class View {
 
+    /**
+     * Prints message
+     * @param message
+     */
     public void printMessage(String message) {
         System.out.println(message);
+    }
+
+    /**
+     * Prints error message
+     * @param message
+     */
+    public void printErrorMessage(String message) {
+        System.err.println(message);
     }
 
     /**

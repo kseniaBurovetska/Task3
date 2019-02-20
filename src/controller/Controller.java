@@ -21,11 +21,12 @@ public class Controller {
         Scanner scanner = new Scanner(System.in);
         InputToNoteBook inputToNoteBook = new InputToNoteBook(scanner, view);
         inputToNoteBook.input();
+        NoteBook noteBook;
         try {
-            NoteBook noteBook = new NoteBook(inputToNoteBook.getName(), inputToNoteBook.getLogin());
+            noteBook = new NoteBook(inputToNoteBook.getName(), inputToNoteBook.getLogin());
         }catch (AlreadyExistsException e){
-            System.err.println(e.getMessage());
-            inputToNoteBook.input();
+            view.printErrorMessage(e.getMessage());
+            this.process();
         }
 
     }
