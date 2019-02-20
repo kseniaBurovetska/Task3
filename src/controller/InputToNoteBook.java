@@ -28,32 +28,34 @@ public class InputToNoteBook {
         uc = new UtilityController(scanner, view);
     }
 
-    String getName(){
+    String getName() {
         return name;
     }
 
-    String getLogin(){
+    String getLogin() {
         return login;
     }
 
     public void input() {
 
-        //surname = uc.inputStringValueRegex(TextConsts.INPUT_SURNAME, RegexCont.REGEX_SURNAME);
-        name = getNameReg();
-        //patronymic = uc.inputStringValueRegex(TextConsts.INPUT_PATRONYMIC, RegexCont.REGEX_PATRONYMIC);
-        login = getLoginReg();
+        if (String.valueOf(view.bundle.getLocale()).equals("en")) {
+            name = uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME_EN);
+            surname = uc.inputStringValueRegex(TextConsts.INPUT_SURNAME, RegexCont.REGEX_SURNAME_EN);
+            //patronymic = uc.inputStringValueRegex(TextConsts.INPUT_PATRONYMIC, RegexCont.REGEX_PATRONYMIC_EN);
+            //address = uc.inputStringValueRegex(TextConsts.INPUT_ADDRESS, RegexCont.REGEX_ADDRESS_EN);
+        } else {
+            surname = uc.inputStringValueRegex(TextConsts.INPUT_SURNAME, RegexCont.REGEX_SURNAME_UA);
+            //patronymic = uc.inputStringValueRegex(TextConsts.INPUT_PATRONYMIC, RegexCont.REGEX_PATRONYMIC_UA);
+            name = uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME_UA);
+            //address = uc.inputStringValueRegex(TextConsts.INPUT_ADDRESS, RegexCont.REGEX_ADDRESS_UA);
+
+        }
+
+        login = uc.inputStringValueRegex(TextConsts.INPUT_LOGIN, RegexCont.REGEX_LOGIN);
         //homePhone = uc.inputStringValueRegex(TextConsts.INPUT_HOME_PHONE, RegexCont.REGEX_HOME_PHONE);
         //cellPhone = uc.inputStringValueRegex(TextConsts.INPUT_CELL_PHONE, RegexCont.REGEX_CELL_PHONE);
         //email = uc.inputStringValueRegex(TextConsts.INPUT_EMAIL, RegexCont.REGEX_EMAIL_SKYPE);
-        //address = uc.inputStringValueRegex(TextConsts.INPUT_ADDRESS, RegexCont.REGEX_ADDRESS);
     }
 
-    public String getNameReg(){
-        return uc.inputStringValueRegex(TextConsts.INPUT_NAME, RegexCont.REGEX_NAME);
-    }
-
-    public String getLoginReg(){
-        return uc.inputStringValueRegex(TextConsts.INPUT_LOGIN, RegexCont.REGEX_LOGIN);
-    }
 
 }

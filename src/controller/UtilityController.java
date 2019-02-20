@@ -23,10 +23,10 @@ public class UtilityController {
      */
     public String inputStringValueRegex(String message, String regex) {
         String res;
-        view.printMessage(message);
+        view.printStringInput(message);
 
         while (!(scanner.hasNext() && (res = scanner.nextLine()).matches(regex))) {
-            view.concatMessage(TextConsts.ERROR_INPUT, message);
+            view.printWrongInputString(message);
         }
 
         return res;
